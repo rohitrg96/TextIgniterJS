@@ -216,6 +216,7 @@ class HyperlinkHandler {
   }
 
   hyperlinkAlreadyPositioned = false;
+
   showHyperlinkViewButton(link: string | ''): void {
     const viewHyperlinkContainer = document.getElementById(
       strings.VIEW_HYPERLINK_CONTAINER_ID
@@ -242,10 +243,13 @@ class HyperlinkHandler {
         hyperLinkText.innerText = link;
       }
 
-      // Remove any previous click handler to avoid stacking
-      viewHyperlinkContainer.onclick = null;
+      // Prevent mouse from triggering editor selection change
+      viewHyperlinkContainer.onmousedown = e => {
+        e.preventDefault();
+        e.stopPropagation();
+      };
 
-      // Add click handler to the entire popup
+      // Add click handler
       viewHyperlinkContainer.onclick = e => {
         e.preventDefault();
         e.stopPropagation();

@@ -241,7 +241,7 @@ export function createEditor(
   hyperLinkViewSpan.innerHTML = 'Visit URL :';
 
   const hyperLinkText = document.createElement('span');
-  hyperLinkText.id = strings.VIEW_HYPERLINK_ANCHOR_ID; // You can keep the same ID
+  hyperLinkText.id = strings.VIEW_HYPERLINK_ANCHOR_ID;
   hyperLinkText.style.textDecoration = 'underline';
   hyperLinkText.style.color = 'blue'; // Optional: make it look like a link
   hyperLinkText.style.marginLeft = '4px';
